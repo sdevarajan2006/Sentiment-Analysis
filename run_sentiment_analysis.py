@@ -1,20 +1,26 @@
+'''
+Run sentiment analysis
+'''
 import requests
-# post something to the web (post call)
-# get something from the web (get call)
-    # where to get it from (URL)
-    # Pass an identification key
-    # pass a parameter
-    # 
 
-
+'''
+API Key
+'''
 API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english"
 headers = {"Authorization": "Bearer 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"}
 
 def query(payload):
+	'''
+	Query function which runs the sentiment analysis
+	'''
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 
 def run_sentiment_analysis(text):
+	'''
+	This function runs a sentiment analysis on a list of groups of sentences, and returns the 
+	average positive and negative sentiment
+	'''
 	number_of_sections = len(text)
 	positive_counter = 0
 	negative_counter = 0

@@ -1,12 +1,25 @@
+'''
+Individual window breakdown
+'''
+'''
+API Key
+'''
 import requests
 API_URL = "https://api-inference.huggingface.co/models/distilbert-base-uncased-finetuned-sst-2-english"
 headers = {"Authorization": "Bearer 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"}
 
 def query(payload):
+	'''
+	Query function which runs the sentiment analysis
+	'''
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 
 def individual_window_breakdown(text):
+	'''
+	This function takes a list of sentences, and returns the positive and negative sentiment
+	for each sentence in the form of a list of dictionaries
+	'''
 	list_of_sentences_and_sentiments = []
 	for i in text:
 		output = query({"inputs" : i,

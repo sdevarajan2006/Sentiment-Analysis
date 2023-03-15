@@ -1,6 +1,12 @@
+'''
+PDF Text extractor
+'''
 import PyPDF2
 
 def extract_text(pdf_file):
+    '''
+    This function extracts text from a PDF
+    '''
     pdf = PyPDF2.PdfReader(pdf_file)
     text = ""
     for page in range(len(pdf.pages)): 

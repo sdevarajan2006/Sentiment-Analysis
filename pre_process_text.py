@@ -1,4 +1,10 @@
+'''
+Pre process text
+'''
 def pre_process_text(text, window_size):
+    '''
+    This function breaks down the text into a list of "window size" number of sentences at a 
+    '''
     list_answer = []
     sentence_stoppers = ['.','?','!']
     index_of_string = 0 
